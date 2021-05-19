@@ -12,9 +12,11 @@ end
 
 Load()
 function TIC()
-	
-	gameState.currentScene.Update()
-	gamestate.currentScene.Draw()
+	cls()
+	local currentScene = gameState.currentScene
+
+	currentScene.Update()
+  currentScene.Draw()
 
 end
 
