@@ -1,6 +1,7 @@
 local util = {}
 local width, height = 240,136
 
+-- poo renvoie l'objet player pour une raquette
 function util.Player(pX, pY, pW, pH, pSpeed)
   local player = {}
   player.x = pX
@@ -11,6 +12,7 @@ function util.Player(pX, pY, pW, pH, pSpeed)
   return player
 end
 
+-- collision carré
 function util.CheckCollision(x1,y1,w1,h1, x2,y2,w2,h2)
   return x1 < x2+w2 and
          x2 < x1+w1 and
@@ -18,6 +20,7 @@ function util.CheckCollision(x1,y1,w1,h1, x2,y2,w2,h2)
          y2 < y1+h1
 end
 
+-- Update la position de la balle sur les bords de l'écran
 function util.UpdateBall(ball)
   ball.x = ball.x + ball.vitesse_x
   ball.y = ball.y + ball.vitesse_y
@@ -42,6 +45,7 @@ function util.UpdateBall(ball)
   return ball.x, ball.y, ball.vitesse_x, ball.vitesse_y
 end
 
+--update la position de l'IA
 function util.UpdateIA(ball, IA, difficulte)
 
   if (ball.y > IA.y + ball.radius*2 and math.random(0, difficulte) == 1) then
